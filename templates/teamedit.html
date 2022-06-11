@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Team</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{team.image.url}}">{{team.image}}
+                            </a></span>
+            <form action="{% url 'teamedit' team.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="logo" value="{{team.image}}">
+                <span>Image: <input name="image" id='file' type="file" class="first_input_unique"></span>
+                <span><input value="{{team.text}}" name="text" type="text" placeholder="Text"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{team.text_en}}" name="text_en" type="text" placeholder="Text en"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{team.text_ru}}" name="text_ru" type="text" placeholder="Text ru"  class="input_unique" required></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Info</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{info.logo.url}}">{{info.logo}}
+                            </a></span>
+            <form action="{% url 'infoedit' info.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="image" value="{{info.logo}}">
+                <span>Change: <input name="logo"  id='file' type="file" class="first_input_unique" ></span><hr width="100%">
+                <span><input value="{{info.short_phone}}" name="short_phone" type="tel" placeholder="Short Phone"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{info.phone}}" name="phone" type="tel" placeholder="Phone"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{info.email}}" name="email" type="text" placeholder="Email"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{info.address}}" name="address" type="text" placeholder="Address"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{info.address_ru}}" name="address_ru" type="text" placeholder="Address Ru"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{info.address_en}}" name="address_en" type="text" placeholder="Address En"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{info.lat}}" name="lat" type="float" placeholder="Latutide"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{info.lng}}" name="lng" type="float" placeholder="Longitude"  class="input_unique"></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                    <a href="{% url 'infoedit' info.id %}"><button class="my_uniquebtn">Save and continue editing</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

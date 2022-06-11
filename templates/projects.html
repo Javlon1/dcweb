@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+            <!-- Start Breadcrumbbar -->                    
+            <div class="breadcrumbbar">
+                <div class="row align-items-center">
+                    <div class="col-md-8 col-lg-8">
+                        <h4 class="page-title">Projects</h4>
+                        <div class="breadcrumb-list">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>  
+                                <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="widgetbar">
+                            <a href="{% url 'projectscreate' %}" class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>Add</a>
+                        </div>                        
+                    </div>
+                </div>          
+            </div>
+            <!-- End Breadcrumbbar -->
+            <!-- Start Contentbar -->    
+            <div class="contentbar" style="padding: 0px!important;">                
+                <!-- Start row -->
+                <div class="row">
+                    <!-- Start col -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body" style="margin: 0px!important;">
+                                <div class="table-responsive">
+                                    <!-- Start col -->
+
+                                    {% for i in projects %}
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                    <img src="{{i.image.url}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="card m-b-30">
+                                            <div class="card-body">
+                                                <div class="accordion" id="accordionwithicon">
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingOneicon">
+                                                            <h2 class="mb-0">
+                                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneicon{{i.id}}" aria-expanded="true" aria-controls="collapseOneicon"><i class="feather icon-award mr-2"></i>Text</button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseOneicon{{i.id}}" class="collapse show" aria-labelledby="headingOneicon" data-parent="#accordionwithicon">
+                                                            <div class="card-body">
+                                                           {{i.text}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingTwoicon">
+                                                            <h2 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoicon{{i.id}}" aria-expanded="false" aria-controls="collapseTwoicon"><i class="feather icon-calendar mr-2"></i>Text Russian</button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseTwoicon{{i.id}}" class="collapse" aria-labelledby="headingTwoicon" data-parent="#accordionwithicon">
+                                                            <div class="card-body">
+                                                                {{i.text_ru}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingThreeicon">
+                                                            <h2 class="mb-0">
+                                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeicon{{i.id}}" aria-expanded="false" aria-controls="collapseThreeicon"><i class="feather icon-droplet mr-2"></i>Text English</button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="collapseThreeicon{{i.id}}" class="collapse" aria-labelledby="headingThreeicon" data-parent="#accordionwithicon">
+                                                            <div class="card-body">
+                                                                {{i.text_en}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="display: flex;
+                                            justify-content: right;
+                                            padding: 1.25rem;">
+                                                <a href="{% url 'projectsedit' i.id %}" style="margin-right: 5px"><button type="button" class="tabledit-edit-button" style="color: white;"><span class="ti-pencil"></span></button></a>
+                                                <button type="button" class="tabledit-delete-button" data-toggle="modal" data-target="#myModal{{i.id}}" style="color: white"><span class="ti-trash"></span></button>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal{{i.id}}" role="dialog">
+                                        <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                <p>Do you really want to delete it ?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <a href="{% url 'deleteprojects' i.id %}" style="margin-top: 4px"><button type="button" class="btn btn-default" style="background-color: red; border: 1px solid #ddd; border-radius: 5px;">Delete.</button></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Modal -->
+                                     {% endfor %}
+
+                                <!-- End col -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End row -->
+            </div>
+            <!-- End Contentbar -->
+            {% endblock %}

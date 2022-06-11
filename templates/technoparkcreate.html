@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Technopark</h1>
+        <div class="wrap">
+            <form action="{% url 'technoparkcreate' %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span>Icon: <input name="icon" id='file' type="file" class="first_input_unique" required></span><hr width="100%">
+                <span><input name="text" type="text" placeholder="Text"  class="input_unique" required></span><hr width="100%">
+                <span><input name="text_en" type="text" placeholder="Text En"  class="input_unique" required></span><hr width="100%">
+                <span><input name="text_ru" type="text" placeholder="Text Ru"  class="input_unique" required></span><hr width="100%">
+                <span><input name="number" type="tel" placeholder="Number"  class="input_unique" required></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        
+      </script>
+    {% endblock %}

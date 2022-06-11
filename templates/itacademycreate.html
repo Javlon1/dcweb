@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>It Academy</h1>
+        <div class="wrap">
+            <form action="{% url 'itacademycreate' %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span>Image: <input name="image" id='file' type="file" class="first_input_unique" required></span><hr width="100%">
+                <span><input name="name" type="text" placeholder="Name"  class="input_unique" required></span><hr width="100%">
+                <span><input name="name_en" type="text" placeholder="Name En"  class="input_unique" required></span><hr width="100%">
+                <span><input name="name_ru" type="text" placeholder="Name Ru"  class="input_unique" required></span><hr width="100%">
+                <span><input name="duration" type="duration" placeholder="duration"  class="input_unique" required></span><hr width="100%">
+                <span><input name="duration_en" type="duration" placeholder="duration En"  class="input_unique" required></span><hr width="100%">
+                <span><input name="duration_ru" type="duration" placeholder="duration Ru"  class="input_unique" required></span><hr width="100%">
+
+                <span><input name="start" type="date" placeholder="Start Date"  class="input_unique" required></span><hr width="100%">
+                <span><input name="tech" type="text" placeholder="technologies"  class="input_unique" required></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+      </script>
+    {% endblock %}
+

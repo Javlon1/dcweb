@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Internet Providers</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{internetproviders.logo.url}}">{{internetproviders.logo}}
+                            </a></span>
+            <form action="{% url 'internetprovidersedit' internetproviders.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="image" value="{{internetproviders.logo}}">
+                <span>Change: <input name="logo" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

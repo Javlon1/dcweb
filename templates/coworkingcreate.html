@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Coworking</h1>
+        <div class="wrap">
+            
+                <form action="{% url 'coworkingcreate' %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <select name="images" multiple class="my_unique_select">
+                    {% for i in coimages %}
+                    <option value="{{i.id}}" style="background-image: url({{i.image.url}}); background-repeat: no-repeat; height: 200px; width: 270px; background-size: cover; margin-bottom: 10px; color: red;">{{i.id}}</option>
+                    {% endfor %}
+                </select>
+                <span><input name="text" type="text" placeholder="Text"  class="input_unique" required></span><hr width="100%">
+                <span><input name="text_en" type="text" placeholder="Text En"  class="input_unique" required></span><hr width="100%">
+                <span><input name="text_ru" type="text" placeholder="Text Ru"  class="input_unique" required></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+
+            </form>
+        
+
+        </div>
+    </div>
+    <script>
+        
+      </script>
+    {% endblock %}

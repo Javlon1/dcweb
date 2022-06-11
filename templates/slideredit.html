@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Slider</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{slider.video.url}}">{{slider.video}}
+                            </a></span>
+            <form action="{% url 'slideredit' slider.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="video" value="{{slider.video}}">
+                <span>Change: <input name="logo" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input value="{{slider.title}}" name="title" type="text" placeholder="Title"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{slider.title_ru}}" name="title_ru" type="text" placeholder="Title_ru"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{slider.title_en}}" name="title_en" type="text" placeholder="Title_en"  class="input_unique"></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %} 

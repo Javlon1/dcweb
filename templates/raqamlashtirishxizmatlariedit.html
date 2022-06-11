@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Raqamlashtirish Xizmatlari</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{raqamlashtirishxizmatlari.image.url}}">{{raqamlashtirishxizmatlari.image}}
+                            </a></span>
+            <form action="{% url 'raqamlashtirishxizmatlariedit' raqamlashtirishxizmatlari.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="image" value="{{raqamlashtirishxizmatlari.image}}">
+                <span>Change: <input name="logo" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input value="{{raqamlashtirishxizmatlari.name}}" name="name" type="name" placeholder="name"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{raqamlashtirishxizmatlari.name_en}}" name="name_en" type="name" placeholder="name en"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{raqamlashtirishxizmatlari.name_ru}}" name="name_ru" type="name" placeholder="name ru"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{raqamlashtirishxizmatlari.text}}" name="text" type="text" placeholder="Text"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{raqamlashtirishxizmatlari.text_en}}" name="text_en" type="text" placeholder="Text en"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{raqamlashtirishxizmatlari.text_ru}}" name="text_ru" type="text" placeholder="Text ru"  class="input_unique" required></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %} 

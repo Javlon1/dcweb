@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Our Auidence</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{ouraudience.image.url}}">{{ouraudience.image}}
+                            </a></span>
+            <form action="{% url 'ouraudienceedit' ouraudience.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="image" value="{{ouraudience.image}}">
+                <span>Change: <input name="logo" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input value="{{ouraudience.name}}" name="name" type="text" placeholder="name"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{ouraudience.name_ru}}" name="name_ru" type="text" placeholder="name_ru"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{ouraudience.name_en}}" name="name_en" type="text" placeholder="name_en"  class="input_unique"></span><hr width="100%">
+                
+                <span><input value="{{ouraudience.text}}" name="text" type="text" placeholder="text"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{ouraudience.text_ru}}" name="text_ru" type="text" placeholder="text_ru"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{ouraudience.text_en}}" name="text_en" type="text" placeholder="text_en"  class="input_unique"></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %} 

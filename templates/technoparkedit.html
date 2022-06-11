@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Technopark</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{technopark.icon.url}}">{{technopark.icon}}
+                            </a></span>
+            <form action="{% url 'technoparkedit' technopark.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span>Change: <input name="icon" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input value="{{technopark.text}}" name="text" type="text" placeholder="Text"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{technopark.text_en}}" name="text_en" type="text" placeholder="Text en"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{technopark.text_ru}}" name="text_ru" type="text" placeholder="Text ru"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{technopark.number}}" name="number" type="tel" placeholder="Text ru"  class="input_unique" required></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

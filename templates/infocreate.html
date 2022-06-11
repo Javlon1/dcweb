@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Info</h1>
+        <div class="wrap">
+            <form action="{% url 'infocreate' %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span>Logo: <input name="logo" id='file' type="file" class="first_input_unique" required></span><hr width="100%">
+                <span><input name="short_phone" type="tel" placeholder="Short Phone"  class="input_unique" required></span><hr width="100%">
+                <span><input name="phone" type="tel" placeholder="Phone"  class="input_unique" required></span><hr width="100%">
+                <span><input name="email" type="email" placeholder="Email"  class="input_unique" required></span><hr width="100%">
+                <span><input name="address" type="text" placeholder="Address"  class="input_unique" required></span><hr width="100%">
+                <span><input name="address_ru" type="text" placeholder="Address Ru"  class="input_unique" required></span><hr width="100%">
+                <span><input name="address_en" type="text" placeholder="Address En"  class="input_unique" required></span><hr width="100%">
+                <span><input name="lat" type="number" placeholder="Latutide"  class="input_unique" required></span><hr width="100%">
+                <span><input name="lng" type="number" placeholder="Longitude"  class="input_unique" required></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+      </script>
+    {% endblock %}

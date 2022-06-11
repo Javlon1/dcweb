@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Startup Direction</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{startupdirection.icon.url}}">{{startupdirection.icon}}
+                            </a></span>
+            <form action="{% url 'startupdirectionedit' startupdirection.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span>Change: <input name="image" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input name="name" value="{{startupdirection.name}}" type="text" placeholder="Name"  class="input_unique"></span><hr width="100%">
+                <span><input name="name_en" value="{{startupdirection.name_en}}" type="text" placeholder="Name En"  class="input_unique"></span><hr width="100%">
+                <span><input name="name_ru" value="{{startupdirection.name_ru}}" type="text" placeholder="Name Ru"  class="input_unique"></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+  

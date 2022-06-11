@@ -1,0 +1,314 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Orbiter is a bootstrap minimal & clean admin template">
+    <meta name="keywords" content="admin, admin panel, admin template, admin dashboard, responsive, bootstrap 4, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
+    <meta name="author" content="Themesbox">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Digital City | Andijon</title>
+    <!-- Fevicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+    <!-- Start css -->
+    <link href="{% static 'assets/plugins/switchery/switchery.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/plugins/apexcharts/apexcharts.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/plugins/slick/slick.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/plugins/slick/slick-theme.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/css/bootstrap.min.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/css/icons.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/css/flag-icon.min.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/css/style.css'%}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- End css -->
+</head> 
+<body class="vertical-layout">    
+    <!-- Start Infobar Setting Sidebar -->
+    
+    <div class="infobar-settings-sidebar-overlay"></div>
+    <!-- End Infobar Setting Sidebar -->
+    <!-- Start Containerbar -->
+<div id="containerbar">
+    <!-- Start Leftbar -->
+    <div class="leftbar">
+        <!-- Start Sidebar -->
+        <div class="sidebar">
+            <!-- Start Logobar -->
+            <div class="logobar">
+                <a href="{% url 'home' %}" class="logo logo-large"><img src="{{ img.logo.url }}" class="img-fluid" alt="logo"></a>
+                <a href="{% url 'home' %}" class="logo logo-small"><img src="{{ img.logo.url }}" class="img-fluid" alt="logo"></a>
+            </div>
+            <!-- End Logobar -->
+            <!-- Start Navigationbar -->
+            <div class="navigationbar">
+                <ul class="vertical-menu">
+                    <li>
+                        <a href="{% url 'home' %}">
+                          <img src="{% static 'assets/images/svg-icon/dashboard.svg'%}" class="img-fluid" alt="dashboard"><span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'info' %}">
+                            <img src="{% static 'assets/images/svg-icon/basic.svg' %}" class="img-fluid" alt="basic"><span>Info</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'slider' %}">
+                            <img src="{% static 'assets/images/svg-icon/advanced.svg' %}" class="img-fluid" alt="advanced"><span>Slider</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'projects' %}">
+                          <img src="{% static 'assets/images/svg-icon/apps.svg'%}" class="img-fluid" alt="apps"><span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'technopark' %}">
+                            <img src="{% static 'assets/images/svg-icon/form_elements.svg'%}" class="img-fluid" alt="form_elements"><span>Technopark</span>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'section' %}">
+                            <img src="{% static 'assets/images/svg-icon/chart.svg'%}" class="img-fluid" alt="chart"><span>Section</span>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'postalservices' %}">
+                            <img src="{% static 'assets/images/svg-icon/icons.svg'%}" class="img-fluid" alt="icons"><span>Postalservices</span>
+                        </a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="{% url 'boglanish' %}">
+                            <img src="{% static 'assets/images/svg-icon/tables.svg'%}" class="img-fluid" alt="tables"><span>Boglanish</span>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'mobileoperator' %}">
+                            <img src="{% static 'assets/images/svg-icon/maps.svg'%}" class="img-fluid" alt="maps"><span>Mobileoperators</span>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'internetproviders' %}">
+                            <img src="{% static 'assets/images/svg-icon/widgets.svg'%}" class="img-fluid" alt="widgets"><span>Internetproviders</span>
+                        </a>
+                    </li>                        
+                    <li>
+                        <a href="{% url 'ouraudience' %}">
+                          <img src="{% static 'assets/images/svg-icon/pages.svg'%}" class="img-fluid" alt="pages"><span>OurAudience</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'percentage' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Percentage</span>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'residents' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Residents</span>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'team' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Team</span>
+                        </a>
+                    </li>    
+                    <li>
+                        <a href="{% url 'coworking' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Coworking</span>
+                        </a>
+                    </li>  
+                    <li>
+                        <a href="{% url 'infrastructureslider' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>InfrastructureSlider</span>
+                        </a>
+                    </li>  
+                    <li>
+                        <a href="{% url 'studydirection' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>StudyDirections</span>
+                        </a>
+                    </li>  
+                    <li>
+                        <a href="{% url 'itacademy' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>ItAcademy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'startupdirection' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>StartupDirections</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'incubationcenters' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>IncubationCenters</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'raqamlashtirishxizmatlari' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Raqamlashtirishxizmalari</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Contact</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'xizmatlari' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Xizmatlar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'application' %}">
+                            <img src="{% static 'assets/images/svg-icon/ecommerce.svg'%}" class="img-fluid" alt="ecommerce"><span>Application</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- End Navigationbar -->
+        </div>
+        <!-- End Sidebar -->
+
+    </div>
+    <!-- End Leftbar -->
+        <!-- Start Rightbar -->
+        <div class="rightbar">
+            <!-- Start Topbar Mobile -->
+            <div class="topbar-mobile">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="mobile-logobar">
+                            <a href="index.html" class="mobile-logo"><img src="{% static 'assets/images/logo.svg'%}" class="img-fluid" alt="logo"></a>
+                        </div>
+                        <div class="mobile-togglebar">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <div class="topbar-toggle-icon">
+                                        <a class="topbar-toggle-hamburger" href="javascript:void();">
+                                            <img src="{% static 'assets/images/svg-icon/horizontal.svg'%}" class="img-fluid menu-hamburger-horizontal" alt="horizontal">
+                                            <img src="{% static 'assets/images/svg-icon/verticle.svg'%}" class="img-fluid menu-hamburger-vertical" alt="verticle">
+                                         </a>
+                                     </div>
+                                </li>
+                                <li class="list-inline-item">
+                                    <div class="menubar">
+                                        <a class="menu-hamburger" href="javascript:void();">
+                                            <img src="{% static 'assets/images/svg-icon/collapse.svg'%}" class="img-fluid menu-hamburger-collapse" alt="collapse">
+                                            <img src="{% static 'assets/images/svg-icon/close.svg'%}" class="img-fluid menu-hamburger-close" alt="close">
+                                         </a>
+                                     </div>
+                                </li>                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Topbar -->
+            <div class="topbar">
+                <!-- Start row -->
+                <div class="row align-items-center">
+                    <!-- Start col -->
+                    <div class="col-md-12 align-self-center">
+                        <div class="togglebar">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <div class="menubar">
+                                        <a class="menu-hamburger" href="javascript:void();">
+                                           <img src="{% static 'assets/images/svg-icon/collapse.svg'%}" class="img-fluid menu-hamburger-collapse" alt="collapse">
+                                           <img src="{% static 'assets/images/svg-icon/close.svg'%}" class="img-fluid menu-hamburger-close" alt="close">
+                                         </a>
+                                     </div>
+                                </li>
+                                <li class="list-inline-item">
+                                    <!-- <div class="searchbar">
+                                        <form>
+                                            <div class="input-group">
+                                              <input type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                                              <div class="input-group-append">
+                                                <button class="btn" type="submit" id="button-addon2"><img src="{% static 'assets/images/svg-icon/search.svg'%}" class="img-fluid" alt="search"></button>
+                                              </div>
+                                            </div>
+                                        </form>
+                                    </div> -->
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="infobar">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <div id="infobar-settings-open" class="infobar-icon">
+                                        
+                                    </div>
+                                </li>
+                                <li class="list-inline-item">
+                                    <div class="profilebar">
+                                        <div class="dropdown">
+                                          <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'assets/images/users/profile.svg'%}" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
+                                                
+                                                <div class="userbox">
+                                                    <ul class="list-unstyled mb-0">
+                                                        <form action="{% url 'home' %}" method="post">
+                                                            {% csrf_token %}
+                                                            <button style="border: none;" class="profile-icon"><img src="{% static 'assets/images/svg-icon/logout.svg'%}" class="img-fluid" alt="logout">Logout</button>
+                                                        </form>                               
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                   
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                </div> 
+                <!-- End row -->
+            </div>
+            <!-- End Topbar -->
+    {% block content %}
+    {% endblock %}
+    <!-- Start Footerbar -->
+    <div class="footerbar">
+        <footer class="footer">
+            <p class="mb-0">© 2022 Orbiter - All Rights Reserved.</p>
+        </footer>
+    </div>
+    <!-- End Footerbar -->
+</div>
+
+   <!-- End Rightbar -->
+</div>
+<!-- End Containerbar -->
+    <!-- Start js -->        
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/js/popper.min.js'%}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/modernizr.min.js'%}"></script>
+    <script src="{% static 'assets/js/detect.js'%}"></script>
+    <script src="{% static 'assets/js/jquery.slimscroll.js'%}"></script>
+    <script src="{% static 'assets/js/vertical-menu.js'%}"></script>
+    <!-- Switchery js -->
+    <script src="{% static 'assets/plugins/switchery/switchery.min.js'%}"></script>
+    <!-- Apex js -->
+    <script src="{% static 'assets/plugins/apexcharts/apexcharts.min.js'%}"></script>
+    <script src="{% static 'assets/plugins/apexcharts/irregular-data-series.js'%}"></script>    
+    <!-- Slick js -->
+    <script src="{% static 'assets/plugins/slick/slick.min.js'%}"></script>
+    <!-- Custom Dashboard js -->   
+    <script src="{% static 'assets/js/custom/custom-dashboard.js'%}"></script>
+    <!-- Core js -->
+    <script src="{% static 'assets/js/core.js'%}"></script>
+    <!-- End js -->
+</body>
+</html>

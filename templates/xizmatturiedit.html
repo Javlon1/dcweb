@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Xizmat Turi</h1>
+        <div class="wrap">
+            <form action="{% url 'xizmatturiedit' xizmatturi.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span><input value="{{xizmatturi.name}}" name="name" type="text" placeholder="Name"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{xizmatturi.name_ru}}" name="name_ru" type="text" placeholder="Name Ru"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{xizmatturi.name_en}}" name="name_en" type="text" placeholder="Name En"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{xizmatturi.price}}" name="price" type="number" placeholder="Price"  class="input_unique" required></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

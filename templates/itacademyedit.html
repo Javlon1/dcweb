@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>It Academy</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{itacademy.image.url}}">{{itacademy.image}}
+                            </a></span>
+            <form action="{% url 'itacademyedit' itacademy.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span>Change: <input name="image" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input name="name" value="{{itacademy.name}}" type="text" placeholder="Name"  class="input_unique"></span><hr width="100%">
+                <span><input name="name_en" value="{{itacademy.name_en}}" type="text" placeholder="Name En"  class="input_unique"></span><hr width="100%">
+                <span><input name="name_ru" value="{{itacademy.name_ru}}" type="text" placeholder="Name Ru"  class="input_unique"></span><hr width="100%">
+                <span><input name="duration" value="{{itacademy.duration}}" type="duration" placeholder="duration"  class="input_unique"></span><hr width="100%">
+                <span><input name="duration_en" value="{{itacademy.duration_en}}" type="duration" placeholder="duration En"  class="input_unique"></span><hr width="100%">
+                <span><input name="duration_ru" value="{{itacademy.duration_ru}}" type="duration" placeholder="duration Ru"  class="input_unique"></span><hr width="100%">
+
+                <span><input name="start" value="{{date_start}}" type="date" placeholder="Start Date"  class="input_unique"></span><hr width="100%">
+                <span><input name="tech" value="{{itacademy.texnologies_eng}}" type="text" placeholder="technologies"  class="input_unique"></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+  

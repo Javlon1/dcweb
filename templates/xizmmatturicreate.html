@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper">
+    <h1>Xizmmat Turi</h1>
+    <div class="wrap">
+        <form action="{% url 'xizmmatturicreate' %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+            {% csrf_token %}
+            <span><input name="name" type="text" placeholder="Name" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="name_en" type="text" placeholder="Name En" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="name_ru" type="text" placeholder="Name Ru" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="price" type="number" placeholder="price" class="input_unique" required></span>
+            <hr width="100%">
+                <button class="my_uniquebtn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+
+</script>
+{% endblock %}

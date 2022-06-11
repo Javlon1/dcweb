@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Incubation Centers</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{incubationcenters.icon.url}}">{{incubationcenters.icon}}
+                            </a></span>
+            <form action="{% url 'incubationcentersedit' incubationcenters.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="image" value="{{incubationcenters.icon}}">
+                <span>Change: <input name="logo" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input value="{{incubationcenters.text}}" name="text" type="text" placeholder="text"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{incubationcenters.text_ru}}" name="text_ru" type="text" placeholder="text_ru"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{incubationcenters.text_en}}" name="text_en" type="text" placeholder="text_en"  class="input_unique"></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}   

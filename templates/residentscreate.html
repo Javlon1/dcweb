@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper">
+    <h1>Residents</h1>
+    <div class="wrap">
+        <form action="{% url 'residentscreate' %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+            {% csrf_token %}
+            <span>Image: <input name="image" id='file' type="file" class="first_input_unique" required></span>
+            <hr width="100%">
+            <span><input name="name" type="text" placeholder="Name" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="name_en" type="text" placeholder="Name En" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="name_ru" type="text" placeholder="Name Ru" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="text" type="text" placeholder="Text" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="text_en" type="text" placeholder="Text En" class="input_unique" required></span>
+            <hr width="100%">
+            <span><input name="text_ru" type="text" placeholder="Text Ru" class="input_unique" required></span>
+            <hr width="100%">
+            <div class="my_btns">
+                <button class="my_uniquebtn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Section</h1>
+        <div class="wrap">
+            <span>Currently: <a href="{{section.image.url}}">{{section.image}}
+                            </a></span>
+            <form action="{% url 'editsection' section.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <input type="hidden" name="image" value="{{section.image}}">
+                <span>Change: <input name="logo" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <span><input value="{{section.name}}" name="name" type="text" placeholder="name"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{section.name_ru}}" name="name_ru" type="text" placeholder="name_ru"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{section.name_en}}" name="name_en" type="text" placeholder="name_en"  class="input_unique"></span><hr width="100%">
+                
+                <span><input value="{{section.text}}" name="text" type="text" placeholder="text"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{section.text_ru}}" name="text_ru" type="text" placeholder="text_ru"  class="input_unique"></span><hr width="100%">
+                <span><input value="{{section.text_en}}" name="text_en" type="text" placeholder="text_en"  class="input_unique"></span><hr width="100%">
+                
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %} 

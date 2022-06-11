@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Start Breadcrumbbar -->
+<div class="breadcrumbbar">
+  <div class="row align-items-center">
+    <div class="col-md-8 col-lg-8">
+      <h4 class="page-title">Section</h4>
+      <div class="breadcrumb-list">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Section</li>
+        </ol>
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <div class="widgetbar">
+        <a href="{% url 'itacademycreate' %}" class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>Add</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumbbar -->
+<!-- Start Contentbar -->
+<div class="contentbar" style="padding: 0px!important;">
+  <!-- Start row -->
+  <div class="row">
+    <!-- Start col -->
+    <div class="col-lg-12">
+      <div class="card m-b-30">
+        <div class="card-body" style="margin: 0px!important;">
+          <div class="table-responsive">
+            <!-- Start col -->
+            {% for i in it_academy %}
+            <div class="col-lg-6">
+              <div class="card m-b-30">
+                <div class="card-body">
+                  <img width="400" src="{{i.image.url}}">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-xl-6">
+              <div class="card m-b-30">
+                <div class="row">
+                  <!-- Start col -->
+                  <div class="col-lg-6">
+                    <div class="card m-b-30">
+                      <div class="card-body" style="margin: 0px!important;">
+                        <div class="accordion" id="accordionwithicon">
+                          <div class="card">
+                            <div class="card-header" id="headingOneicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                  data-target="#collapseOneicon{{i.id}}name" aria-expanded="false"
+                                  aria-controls="collapseOneicon"><i class="feather icon-award mr-2"></i>Name</button>
+                              </h2>
+                            </div>
+                            <div id="collapseOneicon{{i.id}}name" class="collapse show" aria-labelledby="headingOneicon"
+                              data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.name }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingTwoicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                  data-target="#collapseTwoicon{{i.id}}name_ru" aria-expanded="false"
+                                  aria-controls="collapseTwoicon"><i class="feather icon-calendar mr-2"></i>Name
+                                  Russian</button>
+                              </h2>
+                            </div>
+                            <div id="collapseTwoicon{{i.id}}name_ru" class="collapse" aria-labelledby="headingTwoicon"
+                              data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.name_ru }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingThreeicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                  data-target="#collapseThreeicon{{i.id}}name_en" aria-expanded="false"
+                                  aria-controls="collapseThreeicon"><i class="feather icon-droplet mr-2"></i>Name
+                                  English</button>
+                              </h2>
+                            </div>
+                            <div id="collapseThreeicon{{i.id}}name_en" class="collapse"
+                              aria-labelledby="headingThreeicon" data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.name_en }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingThreeicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                  data-target="#collapseThreeicon{{i.id}}start" aria-expanded="false"
+                                  aria-controls="collapseThreeicon"><i class="feather icon-droplet mr-2"></i>Start</button>
+                              </h2>
+                            </div>
+                            <div id="collapseThreeicon{{i.id}}start" class="collapse"
+                              aria-labelledby="headingThreeicon" data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.start }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End col -->
+                  <!-- Start col -->
+                  <div class="col-lg-6" style="margin: 0 0 0 -57.5px;">
+                    <div class="card m-b-30">
+                      <div class="card-body" style="margin: 0px!important;">
+                        <div class="accordion" id="accordionwithicon">
+                          <div class="card">
+                            <div class="card-header" id="headingOneicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                  data-target="#collapseOneicon{{i.id}}" aria-expanded="true"
+                                  aria-controls="collapseOneicon"><i class="feather icon-award mr-2"></i>Duration</button>
+                              </h2>
+                            </div>
+                            <div id="collapseOneicon{{i.id}}" class="collapse show" aria-labelledby="headingOneicon"
+                              data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.duration }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingTwoicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                  data-target="#collapseTwoicon{{i.id}}" aria-expanded="false"
+                                  aria-controls="collapseTwoicon"><i class="feather icon-calendar mr-2"></i>Duration
+                                  Russian</button>
+                              </h2>
+                            </div>
+                            <div id="collapseTwoicon{{i.id}}" class="collapse" aria-labelledby="headingTwoicon"
+                              data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.duration_ru }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingThreeicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                  data-target="#collapseThreeicon{{i.id}}" aria-expanded="false"
+                                  aria-controls="collapseThreeicon"><i class="feather icon-droplet mr-2"></i>Duration
+                                  English</button>
+                              </h2>
+                            </div>
+                            <div id="collapseThreeicon{{i.id}}" class="collapse" aria-labelledby="headingThreeicon"
+                              data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.duration_en }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-header" id="headingThreeicon">
+                              <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                  data-target="#collapseThreeicon{{i.id}}texnologies" aria-expanded="false"
+                                  aria-controls="collapseThreeicon"><i class="feather icon-droplet mr-2"></i>Texnologies
+                                  English</button>
+                              </h2>
+                            </div>
+                            <div id="collapseThreeicon{{i.id}}texnologies" class="collapse" aria-labelledby="headingThreeicon"
+                              data-parent="#accordionwithicon">
+                              <div class="card-body">
+                                {{ i.texnologies_eng }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End col -->
+                </div>
+                <div>
+                  <a href="{% url 'itacademyedit' i.id %}"><button type="button" class="tabledit-edit-button"
+                      style="color: white;"><span class="ti-pencil"></span></button></a>
+                  <button type="button" class="tabledit-delete-button" data-toggle="modal" data-target="#myModal{{i.id}}"
+                    style="color: white"><span class="ti-trash"></span></button>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal{{i.id}}" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <p>Do you really want to delete it ?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a href="{% url 'itacademydelete' i.id %}" style="margin-top: 4px"><button type="button"
+                        class="btn btn-default"
+                        style="background-color: red; border: 1px solid #ddd; border-radius: 5px;">Delete.</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Modal -->
+            {% endfor %}
+            <!-- End col -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- End col -->
+  </div>
+  <!-- End row -->
+</div>
+<!-- End Contentbar -->
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Percentage</h1>
+        <div class="wrap">
+            <form action="{% url 'percentageedit' percentage.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span><input value="{{percentage.percent}}" name="percent" type="float" placeholder="Text"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{percentage.name}}" name="name" type="text" placeholder="Name"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{percentage.name_ru}}" name="name_ru" type="text" placeholder="Name Ru"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{percentage.name_en}}" name="name_en" type="text" placeholder="Name En"  class="input_unique" required></span><hr width="100%">
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

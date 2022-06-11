@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+            <!-- Start Breadcrumbbar -->                    
+            <div class="breadcrumbbar">
+                <div class="row align-items-center">
+                    <div class="col-md-8 col-lg-8">
+                        <h4 class="page-title">Info</h4>
+                        <div class="breadcrumb-list">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>  
+                                <li class="breadcrumb-item active" aria-current="page">Info</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="widgetbar">
+                            <a href="{% url 'infocreate' %}" class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>Add</a>
+                        </div>                        
+                    </div>
+                </div>          
+            </div>
+            <!-- End Breadcrumbbar -->
+            <!-- Start Contentbar -->    
+            <div class="contentbar">                
+                <!-- Start row -->
+                <div class="row">
+                    <!-- Start col -->
+                    <div class="col-lg-12">
+                        <div class="card m-b-30">
+                            <div class="card-body my_unique_table">
+                                <div class="table-responsive">
+                                    <table class="table my_unique_table">
+                                        <thead>
+                                          <tr>
+                                            <th>Id</th>
+                                            <th>Logo</th>
+                                            <th>Short Phone</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                            <th>Actions</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in info %}
+                                            <tr>
+                                              <td>{{i.id}}</td>
+                                              <td><img src="{{i.logo.url}}" style="width: 150px; height: 100px; object-fit: contain;"></td>
+                                              <td>{{i.short_phone}}</td>
+                                              <td>{{i.phone}}</td>
+                                              <td>{{i.email}}</td>
+                                              <td>{{i.address}}</td>
+                                              <td><a href="{% url 'infoedit' i.id %}"><button type="button" class="tabledit-edit-button" style="color: white;"><span class="ti-pencil"></span></button></a>
+                                                <button type="button" class="tabledit-delete-button" data-toggle="modal" data-target="#myModal{{i.id}}" style="color: white"><span class="ti-trash"></span></button>
+                                          </tr>
+                                          
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="myModal{{i.id}}" role="dialog">
+                                                <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h4 class="modal-title">{{i.short_phone}}</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <p>Do you really want to delete it ?</p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                
+                                                        <a href="{% url 'deleteinfo' i.id %}" style="margin-top: 4px"><button type="button" class="btn btn-default" style="background-color: red; border: 1px solid #ddd; border-radius: 5px;">Delete.</button></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Modal -->
+                                          {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End row -->
+            </div>
+            <!-- End Contentbar -->
+            {% endblock %}
