@@ -58,14 +58,14 @@
                                                           style="color: white;"><span
                                                               class="ti-pencil"></span></button></a>
                                                   <button type="button" class="tabledit-delete-button"
-                                                      data-toggle="modal" data-target="#myModal{{i.id}}"
+                                                      data-toggle="modal" data-target="#myModalturi{{i.id}}"
                                                       style="color: white"><span
                                                           class="ti-trash"></span></button>
                                               </td>
                                           </tr>
                                           
                                             <!-- Modal -->
-                                            <div class="modal fade" id="myModal{{i.id}}" role="dialog">
+                                            <div class="modal fade" id="myModalturi{{i.id}}" role="dialog">
                                                 <div class="modal-dialog">
                                                 <!-- Modal content-->
                                                     <div class="modal-content">
@@ -93,6 +93,25 @@
                 <!-- End row -->
             </div>
             <!-- End Contentbar -->
+            
+            <!-- Start Breadcrumbbar -->                    
+            <div class="breadcrumbbar">
+                <div class="row align-items-center">
+                    <div class="col-md-8 col-lg-8">
+                        <div class="breadcrumb-list">
+                            <ol class="breadcrumb">
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="widgetbar">
+                            <a href="{% url 'xizmmatlarcreate' %}" class="btn btn-primary-rgba"><i
+                                    class="feather icon-plus mr-2"></i>Add</a>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+            <!-- End Breadcrumbbar -->
                         <!-- Start Contentbar -->    
                         <div class="contentbar">                
                             <!-- Start row -->
@@ -122,7 +141,11 @@
                                                           <td>{{i.name}}</td>
                                                           <td>{{i.name_ru}}</td>
                                                           <td>{{i.name_en}}</td>
-                                                          <td><button type="button" class="tabledit-delete-button" data-toggle="modal" data-target="#myModal{{i.id}}" style="color: white"><span class="ti-trash"></span></button></td>
+                                                          <td><a href="{% url 'xizmatlaredit' i.id %}"><button
+                                                                  type="button" class="tabledit-edit-button"
+                                                                  style="color: white;"><span
+                                                                      class="ti-pencil"></span></button></a>
+                                                          <button type="button" class="tabledit-delete-button" data-toggle="modal" data-target="#myModal{{i.id}}" style="color: white"><span class="ti-trash"></span></button></td>
                                                       </tr>
                                                       
                                                         <!-- Modal -->

@@ -34,6 +34,8 @@ urlpatterns = [
     path('api/xizmatlar/', XizmatlarPost.as_view()),
     path("api/xizmatlarget/", XizmatlarGet, name="xizmatget"),
     path('api/application/', ApplicationPost.as_view()),
+
+
     ####
         #Templates
     path('home/', Home, name='home'),
@@ -145,13 +147,16 @@ urlpatterns = [
 
     path('xizmatlari', XizmatlariTemp, name='xizmatlari'),
     path('xizmmatturicreate', XizmatturiCreate, name='xizmmatturicreate'),
-    path('xizmatturiedit/<int:pk>', XizmatturiEdit, name='xizmatturiedit'),
-    path('xizmatlaridelete/<int:pk>', XizmatlariDelete, name='xizmatlaridelete'),
-    path('xizmmatturidelete/<int:pk>', XizmatturiDelete, name='xizmmatturidelete'),
+    path('xizmmatlarcreate', XizmatlarCreate, name='xizmmatlarcreate'),
+    path('xizmatlaredit/<int:pk>/', XizmatlarEdit, name='xizmatlaredit'),
+
+    path('xizmatturiedit/<int:pk>/', XizmatturiEdit, name='xizmatturiedit'),
+    path('xizmatlaridelete/<int:pk>/', XizmatlariDelete, name='xizmatlaridelete'),
+    path('xizmmatturidelete/<int:pk>/', XizmatturiDelete, name='xizmmatturidelete'),
 
 
     path('application', ApplicationTemp, name='application'),
-    path('applicationdelete/<int:pk>', ApplicationDelete, name='applicationdelete'),
+    path('applicationdelete/<int:pk>/', ApplicationDelete, name='applicationdelete'),
 
     path('', Login, name='login')
 

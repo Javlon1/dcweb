@@ -1016,8 +1016,10 @@ def CoworkingEdit(request, pk):
     coworking = Coworking.objects.get(id=pk)
     if request.method == "POST":
         coworking = Coworking.objects.get(id=pk)
-        if 'image' in request.FILES:
-            coworking.image = request.FILES['image']
+        images = []
+        for selected in request.POST.getlist('images'):
+            images.append(Coimages.objects.get(id=selected))
+        coworking.image.set(images)
         coworking.text = request.POST.get('text')
         coworking.text_ru = request.POST.get('text_ru')
         coworking.text_en = request.POST.get('text_en')
@@ -1025,7 +1027,8 @@ def CoworkingEdit(request, pk):
         return redirect('coworking')
     context = {
         'img':img,
-        "coworking": coworking
+        "coworking": coworking,
+        "coimages":Coimages.objects.all(),
     }
     return render(request, 'coworkingedit.html', context)
 
@@ -1454,6 +1457,57 @@ def XizmatlariTemp(request):
         'xizmmatturi':xizmmatturi,
     }
     return render(request, 'xizmatlar.html', context)
+
+
+
+@login_required
+def XizmatlarCreate(request):
+    xizmmatturi = XizmatTuri.objects.all().order_by('-id')
+    img = Info.objects.last()
+    context = {
+        'img':img,
+        "xizmmatturi": xizmmatturi,
+    }
+    if request.method == "POST":
+        data = request.POST
+        list = data.get('xizmat')
+        xizmat = []
+        for i in list:
+            xizmat.append(XizmatTuri.objects.get(id=i))
+        obj = Xizmatlar.objects.create(name=request.POST.get('name'),
+        name_ru=request.POST.get('name_ru'),
+        name_en=request.POST.get('name_en'),
+        xizmat=xizmat[0],
+        )
+        obj.save()
+        return redirect('xizmatlari')
+    return render(request, 'xizmatlarcreate.html', context) 
+
+
+
+@login_required
+def XizmatlarEdit(request, pk):
+    img = Info.objects.last()
+    xizmatlari = Xizmatlar.objects.get(id=pk)
+    turlari = XizmatTuri.objects.all().order_by("-id")
+    if request.method == "POST":
+        xizmatlari = Xizmatlar.objects.get(id=pk)
+        if 'xizmat' in request.POST:
+            xizmatlari.xizmat = XizmatTuri.objects.get(id=request.POST['xizmat'])
+        xizmatlari.name = request.POST.get('name')
+        xizmatlari.name_ru = request.POST.get('name_ru')
+        xizmatlari.name_en = request.POST.get('name_en')
+        xizmatlari.save()
+        return redirect('xizmatlari')
+    context = {
+        'img':img,
+        "xizmatlari": xizmatlari,
+        "turlari":turlari,
+    
+    }
+    return render(request, 'xizmatlaredit.html', context)
+
+
 
 @login_required
 def XizmatlariDelete(request, pk):

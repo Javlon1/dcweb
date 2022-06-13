@@ -4,11 +4,17 @@
     <div class="wrapper">
         <h1>Coworking</h1>
         <div class="wrap">
-            <span>Currently: <a href="{{coworking.image.url}}">{{coworking.image}}
-                            </a></span>
             <form action="{% url 'coworkingedit' coworking.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
                 {% csrf_token %}
-                <span>Change: <input name="image" id='file' type="file" class="first_input_unique"></span><hr width="100%">
+                <select name="images" multiple class="my_unique_select">
+                    {% for i in coimages %}
+                    {% if i in coworking.image.all %}
+                    <option selected value="{{i.id}}"  style="background-image: url({{i.image.url}}); background-repeat: no-repeat; height: 200px; width: 270px; background-size: cover; margin-bottom: 10px; color: rgb(51, 255, 0);">{{i.id}}</option>
+                    {% else %}
+                    <option value="{{i.id}}" style="background-image: url({{i.image.url}}); background-repeat: no-repeat; height: 200px; width: 270px; background-size: cover; margin-bottom: 10px; color: red;">{{i.id}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
                 <span><input value="{{coworking.text}}" name="text" type="text" placeholder="Text"  class="input_unique" required></span><hr width="100%">
                 <span><input value="{{coworking.text_ru}}" name="text_ru" type="text" placeholder="Text ru"  class="input_unique" required></span><hr width="100%">
                 <span><input value="{{coworking.text_en}}" name="text_en" type="text" placeholder="Text en"  class="input_unique" required></span><hr width="100%">
@@ -18,4 +24,4 @@
             </form>
         </div>
     </div>
-{% endblock %}
+{% endblock %} 

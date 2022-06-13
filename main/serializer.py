@@ -119,6 +119,7 @@ class XizmatTuriSerializer(serializers.ModelSerializer):
 
 class XizmatlarSerializer(serializers.ModelSerializer):
     class Meta:
+        depth = 1
         model = Xizmatlar
         fields = '__all__'
 

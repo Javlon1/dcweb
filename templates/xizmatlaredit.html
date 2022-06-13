@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1>Xizmat Turi</h1>
+        <div class="wrap">
+            <form action="{% url 'xizmatlaredit' xizmatlari.id %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                {% csrf_token %}
+                <span><input value="{{xizmatlari.name}}" name="name" type="text" placeholder="Name"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{xizmatlari.name_ru}}" name="name_ru" type="text" placeholder="Name Ru"  class="input_unique" required></span><hr width="100%">
+                <span><input value="{{xizmatlari.name_en}}" name="name_en" type="text" placeholder="Name En"  class="input_unique" required></span><hr width="100%">
+                <select name="xizmat" style="width: 270px;">
+                    {% for i in turlari %}
+                        {% if i == xizmatlari.xizmat %}
+                        <option selected value="{{i.id}}">{{i}}</option>
+                        {% else %}
+                        <option value="{{i.id}}">{{i}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <div class="my_btns">
+                    <button class="my_uniquebtn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
